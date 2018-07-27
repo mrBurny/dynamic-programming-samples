@@ -10,7 +10,7 @@ class LIS {
      * @return  the length
      */
     fun bottomUp(input: IntArray): Int {
-      val lengthLIS = IntArray(input.size) { _ -> 1 }
+      val lengthLIS = IntArray(input.size) { 1 }
       for (i in input.indices) {
         for (j in 0 until i) {
           if (input[i] < input[j] && lengthLIS[j] + 1 > lengthLIS[i]) {
@@ -28,8 +28,8 @@ class LIS {
      * @return  the longest increasing subsequence
      */
     fun bottomUpSubSequence(input: IntArray): IntArray {
-      val lengthLIS = IntArray(input.size) { _ -> 1 }
-      val previousElement = IntArray(input.size) { _ -> -1 }
+      val lengthLIS = IntArray(input.size) { 1 }
+      val previousElement = IntArray(input.size) { -1 }
       for (i in input.indices) {
         for (j in 0 until i) {
           if (input[j] < input[i] && lengthLIS[j] + 1 > lengthLIS[i]) {

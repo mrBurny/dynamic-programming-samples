@@ -4,8 +4,15 @@
 class ED {
 
   companion object {
+
+    /**
+     * Computes editing distance iteratively.
+     * @param first string to be edited
+     * @param second target string
+     * @return the distance
+     */
     fun editingDistanceBottomUp(first: String, second: String): Int {
-      val lengthsED = Array(first.length) { _ -> IntArray(second.length) { _ -> Int.MAX_VALUE } }
+      val lengthsED = Array(first.length) { IntArray(second.length) { Int.MAX_VALUE } }
       for (i in first.indices) {
         lengthsED[i][0] = i
       }
@@ -23,8 +30,14 @@ class ED {
       return lengthsED.last().last()
     }
 
+    /**
+     * Computes editing distance recursively.
+     * @param first string to be edited
+     * @param second target string
+     * @return the distance
+     */
     fun editingDistanceTopDown(first: String, second: String): Int {
-      val lengthsED = Array(first.length) { _ -> IntArray(second.length) { _ -> Int.MAX_VALUE } }
+      val lengthsED = Array(first.length) { IntArray(second.length) { Int.MAX_VALUE } }
 
       val i = first.length - 1
       val j = second.length - 1
